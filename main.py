@@ -55,6 +55,6 @@ if date_today in all_birthdays:
         # Send the email
         connection.sendmail(
             from_addr=MY_EMAIL,                  # Sender email address
-            to_addrs="sendfallon@yahoo.com",     # Recipient email address
+            to_addrs=all_birthdays[date_today]['email'],     # Recipient email address
             msg=f"Subject:Happy Birthday\n\n{email_body}"  # Email subject and body
         )
