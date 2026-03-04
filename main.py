@@ -2,16 +2,14 @@ import datetime as dt # Import the datetime module (aliased as dt) to work with 
 import random # Import random module to randomly select a letter template
 import smtplib # Import smtplib to send emails using SMTP protocol
 import pandas # Import pandas to read and work with CSV data
-
+import os
 
 # Placeholder text in the letter templates that will be replaced with a real name
 TEXT_TO_REPLACE = "[NAME]"
 
 # The sender's email address
-MY_EMAIL = "sendfallon@gmail.com"
-
-# The sender's Gmail app password (used to log into Gmail SMTP server)
-MY_GMAIL_PASSWORD = "ttff ymms zfpp pgvt"
+MY_EMAIL = os.environ.get("MY_EMAIL")
+MY_PASSWORD = os.environ.get("MY_PASSWORD")
 
 # Get the current date and time
 now = dt.datetime.now()
@@ -52,7 +50,7 @@ if date_today in all_birthdays:
         connection.starttls()
 
         # Log into the email account using the provided credentials
-        connection.login(user=MY_EMAIL, password=MY_GMAIL_PASSWORD)
+        connection.login(user=MY_EMAIL, password=MY_PASSWORD)
 
         # Send the email
         connection.sendmail(
