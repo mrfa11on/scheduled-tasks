@@ -52,9 +52,13 @@ if date_today in all_birthdays:
         # Log into the email account using the provided credentials
         connection.login(user=MY_EMAIL, password=MY_PASSWORD)
 
+        print("1")
+
         # Send the email
         connection.sendmail(
             from_addr=MY_EMAIL,                  # Sender email address
             to_addrs=all_birthdays[date_today]['email'],     # Recipient email address
             msg=f"Subject:Happy Birthday\n\n{email_body}"  # Email subject and body
         )
+
+        print("2")
